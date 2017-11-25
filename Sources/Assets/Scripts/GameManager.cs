@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     private GameData gameData;
+    public GameObject leftBound;
+    public GameObject rightBound;
+
     [Header("Managers")]
     public InputManager inputManager;
     public ScenesManager sceneManager;

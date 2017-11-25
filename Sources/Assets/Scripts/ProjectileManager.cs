@@ -8,6 +8,7 @@ public class ProjectileManager : MonoBehaviour {
     public float creationTime;
     // Tank GameObject. Must be set by emitter.
     public GameObject Emitter { get; set; }
+    public GameManager gameManager { get; set; }
     public int baseDamage = 20;
 
     public int InstantDamage() {
@@ -21,11 +22,19 @@ public class ProjectileManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Debug.Assert(Emitter != null);
+        Debug.Assert(gameManager != null);
         creationTime = Time.time;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        var xPos = transform.position.x;
+        if (
+            xPos < gameManager.leftBound.transform.position.x ||
+            xPos > gameManager.rightBound.transform.position.x
+        ) {
+            Destroy(gameObject);
+        }
 	}
 
     void OnTriggerEnter2D(Collider2D coll) {
