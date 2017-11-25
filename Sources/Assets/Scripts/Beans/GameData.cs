@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameData : MonoBehaviour {
 
     public int numberPlayer { get; set; }
-    public Dictionary<int, KeyCode> playerKeys { get; set }
+    public Dictionary<int, KeyCode> playerKeys { get; set; }
     private void Awake() {
         playerKeys = new Dictionary<int, KeyCode>();
 
