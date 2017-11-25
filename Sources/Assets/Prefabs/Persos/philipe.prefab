@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 50846478401034892}
   - component: {fileID: 61502088026849264}
   - component: {fileID: 114491271477096138}
+  - component: {fileID: 82277362929517072}
   m_Layer: 0
   m_Name: philipe
   m_TagString: Untagged
@@ -176,6 +177,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.9237328, y: 6.733532}
   m_EdgeRadius: 0
+--- !u!82 &82277362929517072
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1767374398308174}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114491271477096138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -199,6 +280,11 @@ MonoBehaviour:
   direction: 1
   maxAngle: 165
   minAngle: 25
+  audioSource: {fileID: 82277362929517072}
+  sounds:
+  - {fileID: 8300000, guid: ef010c3242f79a648a2b059eca3e3e20, type: 3}
+  - {fileID: 8300000, guid: 41aaabd131b249d428ff038c407689d0, type: 3}
+  - {fileID: 8300000, guid: 3ef5381fcae86c54fbbf62a6c34609d2, type: 3}
 --- !u!212 &212711462373837492
 SpriteRenderer:
   m_ObjectHideFlags: 1

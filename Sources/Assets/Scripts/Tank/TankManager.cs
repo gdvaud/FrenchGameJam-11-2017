@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class TankManager : MonoBehaviour {
 
@@ -27,6 +26,9 @@ public class TankManager : MonoBehaviour {
     public float maxAngle;
     public float minAngle;
 
+    [Header("Sounds")]
+    public AudioSource audioSource;
+    public List<AudioClip> sounds;
 
     void Update() {
         if (!isLoading) {
@@ -45,12 +47,16 @@ public class TankManager : MonoBehaviour {
 
         if (shoot && (timeLastShot + 1f / shotSpeed) < Time.time) {
             GameObject p = GameObject.Instantiate(projectile, shootDirection.position, shootDirection.rotation);
+
             var projManager = p.GetComponent<ProjectileManager>();
             projManager.Emitter = gameObject;
             projManager.gameManager = gm;
 
             p.GetComponent<Projectile>().setForce((Time.time - startLoading) * forceFactorBySecond);
-            Debug.Log((Time.time - startLoading) * forceFactorBySecond);
+
+            audioSource.clip = sounds[Random.Range(0,sounds.Count)];
+            audioSource.Play();
+
             timeLastShot = Time.time;
         }
         shoot = false;
