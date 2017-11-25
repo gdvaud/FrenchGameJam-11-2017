@@ -10,11 +10,14 @@ public class Projectile : MonoBehaviour {
 
     private Vector3 v;
     private Vector3 accel = new Vector3(0f, -9.81f);
-    private float NOCLIP_DURATION = 0.5f;
+    private const float NOCLIP_DURATION = 1f;
+    private float creationTime;
+    private Collider2D collider;
 
 	// Use this for initialization
 	void Start () {
-        print(transform.eulerAngles.z);
+        creationTime = Time.time;
+        collider = GetComponent<Collider2D>();
         var angle = transform.eulerAngles.z * Math.PI / 180f;
         v = new Vector3(
             force * (float) Math.Cos(angle),
@@ -28,10 +31,15 @@ public class Projectile : MonoBehaviour {
         var dt = Time.deltaTime;
         transform.position += accel * (dt * dt) / 2f + v * dt;
         v += accel * dt;
+
+        // Enable collider after tolerance duration exceeded
+        if (!collider.enabled && Time.time - creationTime > NOCLIP_DURATION) {
+            collider.enabled = true;
+        }
 	}
 
     void OnCollisionEnter2D(Collision2D coll) {
-        Debug.Log("Collision " + this);
+        Debug.Log("Collision", this);
         Destroy(gameObject);
     }
 
