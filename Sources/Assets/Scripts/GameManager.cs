@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
     [Header("Tank Generation")]
     public int maxPlayer = 8;
     private List<int> unusedAreas;
-    public GameObject tankPrefab;
+    public List<GameObject> persos;
     public Transform minLocation;
     public Transform maxLocation;
     private float spawnWidth;
@@ -29,13 +29,12 @@ public class GameManager : MonoBehaviour {
     void Start() {
         gameData = FindObjectOfType<GameData>();
         spawnWidth = maxLocation.position.x - minLocation.position.x;
-
+        
         for (int i = 1; i <= gameData.numberPlayer; i++) {
-            GameObject tank = GameObject.Instantiate(tankPrefab);
+            GameObject tank = GameObject.Instantiate(persos[i % persos.Count]);
 
             Vector2 tankPosition = tank.transform.position;
             tankPosition.x = generatePosition() + minLocation.position.x;
-            Debug.Log(tankPosition);
             tank.transform.position = tankPosition;
 
             TankManager tankManager = tank.GetComponent<TankManager>();
@@ -54,7 +53,8 @@ public class GameManager : MonoBehaviour {
     }
 
     private float generatePosition() {
-        int area = Mathf.RoundToInt(Random.Range(0, unusedAreas.Count));
+        int area = Random.Range(0, unusedAreas.Count);
         return (spawnWidth / maxPlayer * area) + (spawnWidth / maxPlayer / 2);
     }
+
 }
