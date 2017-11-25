@@ -9,6 +9,27 @@ public class TankManager : MonoBehaviour {
     public int health = 50;
     public int maxHealth = 50;
 
+    public int Health {
+        get { return health; }
+        set {
+            health = value;
+            var ratio = health / ((float) maxHealth);
+            healthBar.GetComponent<UnityEngine.UI.Image>().fillAmount = ratio;
+        }
+    }
+
+    private string playerName;
+    public string PlayerName {
+        get { return playerName; }
+        set {
+            playerName = value;
+            playerNameLabel.GetComponent<UnityEngine.UI.Text>().text = value;
+        }
+    }
+
+    public GameObject playerNameLabel;
+    public GameObject healthBar;
+
     [Header("Shoot Handling")]
     private bool shoot = false;
     private bool isLoading = false;
@@ -82,9 +103,9 @@ public class TankManager : MonoBehaviour {
             // Ignore self-collision when if happens soon after the shot
             var ignoreCollision = gameObject == proj.Emitter && Time.time - proj.creationTime < ProjectileManager.TOLERANCE_DURATION;
             if (!ignoreCollision) {
-                health -= proj.InstantDamage();
+                Health -= proj.InstantDamage();
                 Debug.LogFormat("{0} dealt {1} damage to {2}", proj.Emitter.name, proj.InstantDamage(), name);
-                if (health <= 0) {
+                if (Health <= 0) {
                     Debug.LogFormat("{0} killed {1}", proj.Emitter.gameObject.name, name);
                     Destroy(gameObject);
                 }

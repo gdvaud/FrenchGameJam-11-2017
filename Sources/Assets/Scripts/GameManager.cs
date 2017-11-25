@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour {
 
             TankManager tankManager = tank.GetComponent<TankManager>();
             tankManager.setGameManager(this);
+            tankManager.PlayerName = "P" + i;
 
             tanks.Add(i, tankManager);
         }
