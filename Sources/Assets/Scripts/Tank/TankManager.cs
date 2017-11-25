@@ -10,18 +10,16 @@ public class TankManager : MonoBehaviour {
     public int maxHealth = 50;
 
     [Header("Shoot Handling")]
-    public bool shoot = false;
-    public bool wasLoading = false;
+    private bool shoot = false;
+    private bool wasLoading = false;
     public float shotSpeed = 0.5f; //Number of shots per second
-    public float timeLastShot;
+    private float timeLastShot;
     public GameObject projectile;
     public Transform shootDirection;
 
     void Update() {
         if (shoot && (timeLastShot + 1f / shotSpeed) < Time.time) {
-            Debug.Log("shot");
             GameObject p = GameObject.Instantiate(projectile, shootDirection.position, shootDirection.rotation);
-            p.GetComponent<Rigidbody2D>().AddForce(Vector2.right* 100);
             timeLastShot = Time.time;
         }
         shoot = false;
