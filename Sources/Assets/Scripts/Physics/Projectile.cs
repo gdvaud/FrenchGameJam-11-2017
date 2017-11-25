@@ -6,7 +6,7 @@ using System;
 
 public class Projectile : MonoBehaviour {
 
-    public float force = 7f;
+    private float force = 0;
 
     private Vector3 v;
     private Vector3 accel = new Vector3(0f, -9.81f);
@@ -32,6 +32,10 @@ public class Projectile : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D coll) {
         Debug.Log("Collision " + this);
-        gameObject.SetActive(false);
+        Destroy(gameObject);
+    }
+
+    public void setForce(float force) {
+        this.force = force;
     }
 }

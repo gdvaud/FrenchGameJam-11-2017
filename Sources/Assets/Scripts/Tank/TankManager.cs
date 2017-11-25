@@ -12,8 +12,10 @@ public class TankManager : MonoBehaviour {
     [Header("Shoot Handling")]
     private bool shoot = false;
     private bool isLoading = false;
+    public float forceFactorBySecond = 10f;
     public float shotSpeed = 0.5f; //Number of shots per second
     private float timeLastShot;
+    private float startLoading;
     public GameObject projectile;
     public Transform shootDirection;
 
@@ -27,7 +29,7 @@ public class TankManager : MonoBehaviour {
 
     void Update() {
         if (!isLoading) {
-            float z = canon.transform.rotation.eulerAngles.z;
+            float z = canon.transform.eulerAngles.z;
             z += direction * rotationSpeed * Time.deltaTime;
             if (z > maxAngle) {
                 z = maxAngle;
@@ -38,10 +40,12 @@ public class TankManager : MonoBehaviour {
                 direction *= -1;
             }
             canon.transform.rotation = Quaternion.AngleAxis(z, Vector3.forward);
-        } 
+        }
 
         if (shoot && (timeLastShot + 1f / shotSpeed) < Time.time) {
             GameObject p = GameObject.Instantiate(projectile, shootDirection.position, shootDirection.rotation);
+            p.GetComponent<Projectile>().setForce((Time.time - startLoading) * forceFactorBySecond);
+            Debug.Log((Time.time - startLoading) * forceFactorBySecond);
             timeLastShot = Time.time;
         }
         shoot = false;
@@ -54,6 +58,9 @@ public class TankManager : MonoBehaviour {
     public void setIsLoading(bool loading) {
         if (isLoading && !loading) {
             this.shoot = true;
+        }
+        if (!isLoading) {
+            startLoading = Time.time;
         }
         isLoading = loading;
     }
