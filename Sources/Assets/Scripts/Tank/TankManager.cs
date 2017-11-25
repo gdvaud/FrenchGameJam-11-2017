@@ -73,9 +73,10 @@ public class TankManager : MonoBehaviour {
             // Ignore self-collision when if happens soon after the shot
             var ignoreCollision = gameObject == proj.Emitter && Time.time - proj.creationTime < ProjectileManager.TOLERANCE_DURATION;
             if (!ignoreCollision) {
-                health -= proj.damage;
+                health -= proj.InstantDamage();
+                Debug.LogFormat("{0} dealt {1} damage to {2}", proj.Emitter.name, proj.InstantDamage(), name);
                 if (health <= 0) {
-                    Debug.Log(String.Format("{0} killed {1}", proj.Emitter.gameObject.name, gameObject.name));
+                    Debug.LogFormat("{0} killed {1}", proj.Emitter.gameObject.name, name);
                     Destroy(gameObject);
                 }
             }

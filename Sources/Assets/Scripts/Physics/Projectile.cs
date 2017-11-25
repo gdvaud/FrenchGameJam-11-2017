@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour {
 
     private float force = 0;
 
-    private Vector3 v;
+    public Vector3 v;
     private Vector3 accel = new Vector3(0f, -9.81f);
 
 	// Use this for initialization

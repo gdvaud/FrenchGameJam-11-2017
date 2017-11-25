@@ -8,7 +8,15 @@ public class ProjectileManager : MonoBehaviour {
     public float creationTime;
     // Tank GameObject. Must be set by emitter.
     public GameObject Emitter { get; set; }
-    public int damage = 20;
+    public int baseDamage = 20;
+
+    public int InstantDamage() {
+        var physics = GetComponent<Projectile>();
+
+        // Divide by default forceFactorBySecond
+        var velocityFactor = physics.v.magnitude / 10f;
+        return Mathf.RoundToInt(baseDamage * velocityFactor);
+    }
 
 	// Use this for initialization
 	void Start () {
