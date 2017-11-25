@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public GameManager gm;
+    private Dictionary<int, KeyCode> keys;
+
+    void Awake() {
+        keys = new Dictionary<int, KeyCode>();
+    }
+
+    // Update is called once per frame
+    void Update() {
+        foreach (KeyValuePair<int, KeyCode> key in keys) {
+            gm.updateKeyState(key.Key, Input.GetKey(key.Value));
+        }
+    }
+
+    public void addKey(int player, KeyCode key) {
+        keys.Add(player, key);
+    }
 }
