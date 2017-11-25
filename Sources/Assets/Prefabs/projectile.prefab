@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4574501583486986}
   - component: {fileID: 212603706839826982}
   - component: {fileID: 58644915469316274}
-  - component: {fileID: 50645508507456834}
+  - component: {fileID: 114975849110302226}
   m_Layer: 0
   m_Name: projectile
   m_TagString: Untagged
@@ -42,26 +42,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50645508507456834
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1453072805771842}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!58 &58644915469316274
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -77,6 +57,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.048
+--- !u!114 &114975849110302226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1453072805771842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d209c266c70322e46a485f3616b14808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 7
 --- !u!212 &212603706839826982
 SpriteRenderer:
   m_ObjectHideFlags: 1

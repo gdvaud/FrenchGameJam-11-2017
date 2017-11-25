@@ -6,23 +6,32 @@ using System;
 
 public class Projectile : MonoBehaviour {
 
-    public Vector3 v;
-    private Vector3 a = new Vector3(0f, -9.81f);
+    public float force = 7f;
+
+    private Vector3 v;
+    private Vector3 accel = new Vector3(0f, -9.81f);
+    private float NOCLIP_DURATION = 0.5f;
 
 	// Use this for initialization
 	void Start () {
+        print(transform.eulerAngles.z);
+        var angle = transform.eulerAngles.z * Math.PI / 180f;
+        v = new Vector3(
+            force * (float) Math.Cos(angle),
+            force * (float) Math.Sin(angle)
+        );
 	}
 
 
 	// Update is called once per frame
 	void Update () {
         var dt = Time.deltaTime;
-        transform.position += a * (dt * dt) / 2f + v * dt;
-        v += a * dt;
+        transform.position += accel * (dt * dt) / 2f + v * dt;
+        v += accel * dt;
 	}
 
     void OnCollisionEnter2D(Collision2D coll) {
-        print("collision");
+        Debug.Log("Collision " + this);
         gameObject.SetActive(false);
     }
 }
