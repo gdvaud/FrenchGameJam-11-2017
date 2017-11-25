@@ -18,12 +18,12 @@ public class TankManager : MonoBehaviour {
         }
     }
 
-    private string playerName;
-    public string PlayerName {
-        get { return playerName; }
+    private int playerNumber;
+    public int PlayerNumber {
+        get { return playerNumber; }
         set {
-            playerName = value;
-            playerNameLabel.GetComponent<UnityEngine.UI.Text>().text = value;
+            playerNumber = value;
+            playerNameLabel.GetComponent<UnityEngine.UI.Text>().text = "P" + value;
         }
     }
 
@@ -106,7 +106,8 @@ public class TankManager : MonoBehaviour {
                 Health -= proj.InstantDamage();
                 Debug.LogFormat("{0} dealt {1} damage to {2}", proj.Emitter.name, proj.InstantDamage(), name);
                 if (Health <= 0) {
-                    Debug.LogFormat("{0} killed {1}", proj.Emitter.gameObject.name, name);
+                    var killerTankManager = proj.Emitter.GetComponent<TankManager>();
+                    gm.OnPlayerKill(killerTankManager.PlayerNumber, PlayerNumber);
                     Destroy(gameObject);
                 }
             }

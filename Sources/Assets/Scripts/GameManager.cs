@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour {
 
             TankManager tankManager = tank.GetComponent<TankManager>();
             tankManager.setGameManager(this);
-            tankManager.PlayerName = "P" + i;
+            tankManager.PlayerNumber = i;
 
             tanks.Add(i, tankManager);
         }
@@ -79,5 +79,14 @@ public class GameManager : MonoBehaviour {
             indexes.RemoveAt(index);
         }
         persos = newPersos;
+    }
+
+    public void OnPlayerKill(int killerId, int victimId) {
+        Player killer, victim;
+        gameData.players.TryGetValue(killerId, out killer);
+        gameData.players.TryGetValue(victimId, out victim);
+        killer.kill += 1;
+        victim.death += 1;
+        Debug.LogFormat("P{0} killed P{1}", killerId, victimId);
     }
 }
