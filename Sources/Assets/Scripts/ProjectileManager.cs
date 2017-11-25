@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ProjectileManager : MonoBehaviour {
 
-    private const float TOLERANCE_DURATION = 1f;
-    private float creationTime;
+    public const float TOLERANCE_DURATION = 1f;
+    public float creationTime;
     // Tank GameObject. Must be set by emitter.
     public GameObject Emitter { get; set; }
+    public int damage = 20;
 
 	// Use this for initialization
 	void Start () {

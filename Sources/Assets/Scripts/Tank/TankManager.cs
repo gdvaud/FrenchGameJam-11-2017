@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TankManager : MonoBehaviour {
 
@@ -64,5 +65,21 @@ public class TankManager : MonoBehaviour {
             startLoading = Time.time;
         }
         isLoading = loading;
+    }
+
+    public void OnTriggerEnter2D(Collider2D coll) {
+        var proj = coll.gameObject.GetComponent<ProjectileManager>();
+        if (proj != null) {
+            // Ignore self-collision when if happens soon after the shot
+            var ignoreCollision = gameObject == proj.Emitter && Time.time - proj.creationTime < ProjectileManager.TOLERANCE_DURATION;
+            if (!ignoreCollision) {
+                health -= proj.damage;
+                if (health <= 0) {
+                    Debug.Log(String.Format("{0} killed {1}", proj.Emitter.gameObject.name, gameObject.name));
+                    Destroy(gameObject);
+                }
+            }
+
+        }
     }
 }
