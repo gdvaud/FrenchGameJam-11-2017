@@ -28,10 +28,10 @@ public class ProjectileManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        var xPos = transform.position.x;
         if (
-            xPos < gameManager.leftBound.transform.position.x ||
-            xPos > gameManager.rightBound.transform.position.x
+            transform.position.x < gameManager.leftBound.transform.position.x ||
+            transform.position.x > gameManager.rightBound.transform.position.x ||
+            transform.position.y < gameManager.bottomBound.transform.position.y
         ) {
             Destroy(gameObject);
         }

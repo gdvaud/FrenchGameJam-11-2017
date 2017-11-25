@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     private GameData gameData;
+    public GameObject bottomBound;
     public GameObject leftBound;
     public GameObject rightBound;
 
