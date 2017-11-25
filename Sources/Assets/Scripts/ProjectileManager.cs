@@ -4,25 +4,27 @@ using UnityEngine;
 
 public class ProjectileManager : MonoBehaviour {
 
-    private const float NOCLIP_DURATION = 1f;
+    private const float TOLERANCE_DURATION = 1f;
     private float creationTime;
+    // Tank GameObject. Must be set by emitter.
+    public GameObject Emitter { get; set; }
 
 	// Use this for initialization
 	void Start () {
+        Debug.Assert(Emitter != null);
         creationTime = Time.time;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
     void OnTriggerEnter2D(Collider2D coll) {
-        // Enable collider after tolerance duration exceeded
-        if (Time.time - creationTime < NOCLIP_DURATION) {
-            Debug.Log("Collision (ignored)", this);
+        // Ignore self-collision when if happens soon after the shot
+        if (coll.gameObject == Emitter && Time.time - creationTime < TOLERANCE_DURATION) {
+            Debug.Log("Self-collision (ignored)", this);
         } else {
-            Debug.Log("Collision", this);
+            Debug.Log("Collision " + coll.gameObject);
             Destroy(gameObject);
         }
     }

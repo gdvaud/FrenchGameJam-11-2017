@@ -44,6 +44,7 @@ public class TankManager : MonoBehaviour {
 
         if (shoot && (timeLastShot + 1f / shotSpeed) < Time.time) {
             GameObject p = GameObject.Instantiate(projectile, shootDirection.position, shootDirection.rotation);
+            p.GetComponent<ProjectileManager>().Emitter = gameObject;
             p.GetComponent<Projectile>().setForce((Time.time - startLoading) * forceFactorBySecond);
             Debug.Log((Time.time - startLoading) * forceFactorBySecond);
             timeLastShot = Time.time;
