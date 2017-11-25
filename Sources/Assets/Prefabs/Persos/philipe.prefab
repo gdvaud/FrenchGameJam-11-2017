@@ -192,7 +192,7 @@ MonoBehaviour:
   maxHealth: 50
   forceFactorBySecond: 10
   shotSpeed: 0.5
-  projectile: {fileID: 1453072805771842, guid: 9fcd59c898c09c44a8ea080bffef1fca, type: 2}
+  projectile: {fileID: 1564389558746208, guid: 022397029b8074f4a8650faf6928939c, type: 2}
   shootDirection: {fileID: 4116187708476570}
   canon: {fileID: 1333513450031888}
   rotationSpeed: 45

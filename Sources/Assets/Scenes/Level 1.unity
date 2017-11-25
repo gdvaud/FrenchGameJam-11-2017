@@ -753,6 +753,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114557226696720634, guid: 55bd624ea91e01047bfc7a83520c9fc4,
         type: 2}
+      propertyPath: persos.Array.data[0]
+      value: 
+      objectReference: {fileID: 1122190250884136, guid: 537e3a790c173c24791e1f868fb36323,
+        type: 2}
+    - target: {fileID: 114557226696720634, guid: 55bd624ea91e01047bfc7a83520c9fc4,
+        type: 2}
+      propertyPath: persos.Array.data[1]
+      value: 
+      objectReference: {fileID: 1151927950200994, guid: fca0802d20c1b874bb3bedcfe19f5316,
+        type: 2}
+    - target: {fileID: 114557226696720634, guid: 55bd624ea91e01047bfc7a83520c9fc4,
+        type: 2}
+      propertyPath: persos.Array.data[2]
+      value: 
+      objectReference: {fileID: 1767374398308174, guid: 0e87739d706c30f41b60dd857f6646be,
+        type: 2}
+    - target: {fileID: 114557226696720634, guid: 55bd624ea91e01047bfc7a83520c9fc4,
+        type: 2}
       propertyPath: leftBound
       value: 
       objectReference: {fileID: 1429764381}

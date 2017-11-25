@@ -32,7 +32,9 @@ public class GameManager : MonoBehaviour {
     void Start() {
         gameData = FindObjectOfType<GameData>();
         spawnWidth = maxLocation.position.x - minLocation.position.x;
-        
+
+        shufflePersos();
+
         for (int i = 1; i <= gameData.numberPlayer; i++) {
             GameObject tank = GameObject.Instantiate(persos[i % persos.Count]);
 
@@ -60,4 +62,20 @@ public class GameManager : MonoBehaviour {
         return (spawnWidth / maxPlayer * area) + (spawnWidth / maxPlayer / 2);
     }
 
+    private void shufflePersos() {
+        List<int> indexes = new List<int>(persos.Count);
+        List<GameObject> newPersos = new List<GameObject>(persos.Count);
+
+        for (int i = 0; i < persos.Count; i++) {
+            indexes.Add(i);
+        }
+
+        int size = indexes.Count;
+        for (int i = 0; i < size; i++) {
+            int index = Random.Range(0, indexes.Count);
+            newPersos.Add(persos[indexes[index]]);
+            indexes.RemoveAt(index);
+        }
+        persos = newPersos;
+    }
 }
