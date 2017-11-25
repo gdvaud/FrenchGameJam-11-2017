@@ -37,7 +37,6 @@ GameObject:
   - component: {fileID: 114063779601727326}
   - component: {fileID: 114557226696720634}
   - component: {fileID: 114582099763491906}
-  - component: {fileID: 114739873826378442}
   m_Layer: 0
   m_Name: GameCore
   m_TagString: Untagged
@@ -124,10 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de35fef59ca6e4f48899ec7b3917291a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameData: {fileID: 0}
   inputManager: {fileID: 114063779601727326}
   sceneManager: {fileID: 114582099763491906}
-  UIManager: {fileID: 114739873826378442}
-  nbPlayer: 2
   maxPlayer: 8
   tankPrefab: {fileID: 1122190250884136, guid: 0ac815ac022c8ee48ba9587657f8e4f8, type: 2}
   minLocation: {fileID: 4111755191464510}
@@ -141,16 +139,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dccf51a6e1f7414c9fd0500c4ecade1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114739873826378442
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1714665406341584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91ad0eb3885bc3348a65adb3abe6c36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -18,7 +18,7 @@ public class InputManager : MonoBehaviour {
         }
     }
 
-    public void addKey(int player, KeyCode key) {
-        keys.Add(player, key);
+    public void setKeys(Dictionary<int, KeyCode> keys) {
+        this.keys = keys;
     }
 }

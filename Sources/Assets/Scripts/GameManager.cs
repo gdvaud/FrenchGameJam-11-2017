@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    private GameData gameData;
     [Header("Managers")]
     public InputManager inputManager;
-    public SceneManager sceneManager;
-    public UIManager UIManager;
+    public ScenesManager sceneManager;
     private Dictionary<int, TankManager> tanks;
 
     [Header("Tank Generation")]
-    public int nbPlayer = 2;
     public int maxPlayer = 8;
     private List<int> unusedAreas;
     public GameObject tankPrefab;
@@ -28,9 +27,10 @@ public class GameManager : MonoBehaviour {
     }
     // Use this for initialization
     void Start() {
+        gameData = FindObjectOfType<GameData>();
         spawnWidth = maxLocation.position.x - minLocation.position.x;
 
-        for (int i = 1; i <= nbPlayer; i++) {
+        for (int i = 1; i <= gameData.numberPlayer; i++) {
             GameObject tank = GameObject.Instantiate(tankPrefab);
 
             Vector2 tankPosition = tank.transform.position;
@@ -44,8 +44,7 @@ public class GameManager : MonoBehaviour {
             tanks.Add(i, tankManager);
         }
 
-        inputManager.addKey(1, KeyCode.A);
-        inputManager.addKey(2, KeyCode.B);
+        inputManager.setKeys(gameData.playerKeys);
     }
 
     public void updateKeyState(int player, bool state) {
