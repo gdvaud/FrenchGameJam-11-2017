@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour {
         if (victim.death < gameData.maxLives) {
             resetTank(victimTank);
         } else {
-            Destroy(victimTank.gameObject);
+            victimTank.gameObject.SetActive(false);
         }
     }
 }
