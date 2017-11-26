@@ -45,17 +45,24 @@ public class GameManager : MonoBehaviour {
             score.GetComponent<RectTransform>().anchoredPosition = scorePosition;
             Debug.Log(scorePosition);
 
-            tank.transform.position = spawnManager.allocateSpawnPoint(i);
-
             TankManager tankManager = tank.GetComponent<TankManager>();
             tankManager.setGameManager(this);
             tankManager.PlayerNumber = i;
             tankManager.Score = score;
 
+            resetTank(tankManager);
+
             tanks.Add(i, tankManager);
         }
 
         inputManager.setKeys(gameData.playerKeys);
+    }
+
+    private void resetTank(TankManager tank) {
+        spawnManager.freeSpawnPoint(tank.PlayerNumber);
+        tank.transform.position = spawnManager.allocateSpawnPoint(tank.PlayerNumber);
+        tank.Health = tank.maxHealth;
+        tank.setIsLoading(false);
     }
 
     public void updateKeyState(int player, bool state) {
@@ -92,14 +99,13 @@ public class GameManager : MonoBehaviour {
         TankManager killers, victims;
         tanks.TryGetValue(killerId, out killers);
         tanks.TryGetValue(victimId, out victims);
-        killers.kills.text = "Kills" + killer.kill;
-        victims.death.text = "Death" + victim.death;
+        killers.kills.text = "Kills: " + killer.kill;
+        victims.death.text = "Death: " + victim.death;
 
         spawnManager.freeSpawnPoint(victimId);
         TankManager victimTank = tanks[victimId];
         if (victim.death < gameData.maxLives) {
-            victimTank.Health = victimTank.maxHealth;
-            victimTank.transform.position = spawnManager.allocateSpawnPoint(victimId);
+            resetTank(victimTank);
         } else {
             Destroy(victimTank.gameObject);
         }

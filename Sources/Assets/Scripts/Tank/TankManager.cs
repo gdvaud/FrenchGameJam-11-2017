@@ -117,6 +117,7 @@ public class TankManager : MonoBehaviour {
         
     private void enableArm() {
         playerArm.SetActive(true);
+        startLoading = Time.time;
     }
 
     public void setGameManager(GameManager gm) {
