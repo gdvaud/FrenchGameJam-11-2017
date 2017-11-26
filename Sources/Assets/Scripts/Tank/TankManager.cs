@@ -109,8 +109,8 @@ public class TankManager : MonoBehaviour {
             playerArm.SetActive(false);
             Invoke("enableArm", 1f / shotSpeed);
 
-            audioSource.clip = sounds[Random.Range(0,sounds.Count)];
-            audioSource.Play();
+            audioShotSource.clip = shotSounds[Random.Range(0, shotSounds.Count)];
+            audioShotSource.Play();
 
             timeLastShot = Time.time;
         }
