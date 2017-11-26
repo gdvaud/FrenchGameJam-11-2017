@@ -494,7 +494,7 @@ MonoBehaviour:
   maxHealth: 50
   playerNameLabel: {fileID: 1412359729059008}
   healthBar: {fileID: 1595158046392680}
-  playerArm: {fileID: 1926723176713642}
+  playerArm: {fileID: 1413539256724738}
   forceFactorBySecond: 10
   shotSpeed: 0.5
   projectile: {fileID: 1228952745929662, guid: 9071ea67297d492418c3db14d24d1d77, type: 2}
@@ -505,9 +505,34 @@ MonoBehaviour:
   maxAngle: 175
   minAngle: 35
   audioShotSource: {fileID: 82322301422928090}
-  shotSounds: []
+  shotSounds:
+  - {fileID: 8300000, guid: 8104092659c955541bc57f545712f569, type: 3}
+  - {fileID: 8300000, guid: 7ee87f1c3160119428d8b5994e8153c6, type: 3}
+  - {fileID: 8300000, guid: 9f50cd257139f3c40ab34effe1cec091, type: 3}
+  - {fileID: 8300000, guid: 43a00a8809444034c9c11a01f85028b9, type: 3}
+  - {fileID: 8300000, guid: 647ccacad059f214b96e4c0439728d8e, type: 3}
+  - {fileID: 8300000, guid: a2c8bc9b391179d4c9f56b64defc1fd5, type: 3}
+  - {fileID: 8300000, guid: 4fba703501d507b47930e241b21088e9, type: 3}
+  - {fileID: 8300000, guid: 925a5f8fcaa1a724493b3b9bac85afdd, type: 3}
+  - {fileID: 8300000, guid: 96520785cdb94e5459f0f8b88d217179, type: 3}
+  - {fileID: 8300000, guid: 5935548b20e22a546b91b1b2b2b6a39d, type: 3}
+  - {fileID: 8300000, guid: c1ffd0e8a7887f54d93898f84e2fac19, type: 3}
+  - {fileID: 8300000, guid: da95435a3666a5b4d9103f66851b4105, type: 3}
+  - {fileID: 8300000, guid: 8ead4c13c30dc1f4aa92a07c3c4becf2, type: 3}
+  - {fileID: 8300000, guid: 8f24f5a8984a3fc4db6f219fe45990d1, type: 3}
+  - {fileID: 8300000, guid: d136e92362670db4f86818a38bc5b08e, type: 3}
+  - {fileID: 8300000, guid: 1350bdd5ed1f0034c9856d9d202c7bd1, type: 3}
+  - {fileID: 8300000, guid: f0115855eb10b5d498040b2dc0e622c1, type: 3}
+  - {fileID: 8300000, guid: 9084909bda0c0844b993f76682104bfc, type: 3}
+  - {fileID: 8300000, guid: 073a0033a2beba948a922e6e8d98d089, type: 3}
   audioDeathSource: {fileID: 82120950424064486}
-  deathSounds: []
+  deathSounds:
+  - {fileID: 8300000, guid: e4925d4678dd95a42af0f4886c292025, type: 3}
+  - {fileID: 8300000, guid: a423d8dec4f36614bb112ee53b4a5670, type: 3}
+  - {fileID: 8300000, guid: 42e53e8f1dcb68647888ddc42ce57daf, type: 3}
+  - {fileID: 8300000, guid: b28d90159f8d7a249af0e4af6b14179e, type: 3}
+  - {fileID: 8300000, guid: 510e6b1292784b84983c115fd14bbbc0, type: 3}
+  - {fileID: 8300000, guid: 1cef0d08968be8845a5dc035ebf8217a, type: 3}
 --- !u!114 &114782492242508866
 MonoBehaviour:
   m_ObjectHideFlags: 1

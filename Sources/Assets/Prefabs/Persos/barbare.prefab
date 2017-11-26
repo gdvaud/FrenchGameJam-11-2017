@@ -451,7 +451,7 @@ MonoBehaviour:
   maxHealth: 50
   playerNameLabel: {fileID: 1581822373129988}
   healthBar: {fileID: 1208125856259986}
-  playerArm: {fileID: 1342432933837174}
+  playerArm: {fileID: 1499157276313772}
   forceFactorBySecond: 10
   shotSpeed: 0.5
   projectile: {fileID: 1915380081449200, guid: 060a137a57f57ca49bd731338667908c, type: 2}
@@ -462,9 +462,24 @@ MonoBehaviour:
   maxAngle: 160
   minAngle: 20
   audioShotSource: {fileID: 82002881176413222}
-  shotSounds: []
+  shotSounds:
+  - {fileID: 8300000, guid: e5f79b84279c1da43bd17d9b91aea449, type: 3}
+  - {fileID: 8300000, guid: f70fe8efad28cc84ba6169ffe98f7064, type: 3}
+  - {fileID: 8300000, guid: ded17acf64ef7f84e8aeb5949ae6f628, type: 3}
+  - {fileID: 8300000, guid: e944714f60e72bb439b5f62d5ec3b259, type: 3}
+  - {fileID: 8300000, guid: 8dcec29ad0ea0d240871cc06dc671ced, type: 3}
+  - {fileID: 8300000, guid: 77ec78eddc98cb7499d58fce66976d7e, type: 3}
+  - {fileID: 8300000, guid: 6f02a5abc67cc3343ad12e3c2034e6a3, type: 3}
+  - {fileID: 8300000, guid: 1252354961c3a3b47a616ee84d603c99, type: 3}
+  - {fileID: 8300000, guid: 05c5688b7a730f5458ac2ded5f9a994e, type: 3}
+  - {fileID: 8300000, guid: fed5a3e74c082ea43aeac6eb11590444, type: 3}
+  - {fileID: 8300000, guid: f3e6d4dcbd197994ea0a43d202669533, type: 3}
+  - {fileID: 8300000, guid: a8f2298c60439be419669f2ef952f4cc, type: 3}
+  - {fileID: 8300000, guid: 1b4fd865798cd4245985bd39ab43c6d1, type: 3}
   audioDeathSource: {fileID: 82382676352658186}
-  deathSounds: []
+  deathSounds:
+  - {fileID: 8300000, guid: 679ce595cc8d99a49a627afdb5d182b3, type: 3}
+  - {fileID: 8300000, guid: 7bdd74719f83530469794d0521855d11, type: 3}
 --- !u!114 &114373513531158432
 MonoBehaviour:
   m_ObjectHideFlags: 1

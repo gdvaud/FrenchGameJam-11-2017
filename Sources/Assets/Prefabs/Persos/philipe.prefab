@@ -505,7 +505,7 @@ MonoBehaviour:
   maxHealth: 50
   playerNameLabel: {fileID: 1782850981502404}
   healthBar: {fileID: 1737737747458756}
-  playerArm: {fileID: 1515569198728796}
+  playerArm: {fileID: 1333513450031888}
   forceFactorBySecond: 10
   shotSpeed: 0.5
   projectile: {fileID: 1564389558746208, guid: 022397029b8074f4a8650faf6928939c, type: 2}
@@ -516,9 +516,17 @@ MonoBehaviour:
   maxAngle: 165
   minAngle: 25
   audioShotSource: {fileID: 82277362929517072}
-  shotSounds: []
+  shotSounds:
+  - {fileID: 8300000, guid: ef010c3242f79a648a2b059eca3e3e20, type: 3}
+  - {fileID: 8300000, guid: 41aaabd131b249d428ff038c407689d0, type: 3}
+  - {fileID: 8300000, guid: 89507ee40090cbe4a852bd4becbca276, type: 3}
+  - {fileID: 8300000, guid: cf91524afa9d01144a09d3b3cc32650e, type: 3}
+  - {fileID: 8300000, guid: 1761ca4aee04f4448b9c7af38f42eef7, type: 3}
+  - {fileID: 8300000, guid: 3ef5381fcae86c54fbbf62a6c34609d2, type: 3}
+  - {fileID: 8300000, guid: 01cebfa61c9c8fd41858c278decf797e, type: 3}
   audioDeathSource: {fileID: 82589378927136042}
-  deathSounds: []
+  deathSounds:
+  - {fileID: 8300000, guid: 5f1c02da17d412542b230188e0a79947, type: 3}
 --- !u!114 &114557872636827104
 MonoBehaviour:
   m_ObjectHideFlags: 1
