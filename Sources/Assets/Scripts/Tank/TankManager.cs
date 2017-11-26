@@ -57,6 +57,7 @@ public class TankManager : MonoBehaviour {
 
     public GameObject playerNameLabel;
     public GameObject healthBar;
+    public GameObject playerArm;
 
     [Header("Shoot Handling")]
     private bool shoot = false;
@@ -103,12 +104,19 @@ public class TankManager : MonoBehaviour {
 
             p.GetComponent<Projectile>().setForce((Time.time - startLoading) * forceFactorBySecond);
 
+            playerArm.SetActive(false);
+            Invoke("enableArm", 1f / shotSpeed);
+
             audioSource.clip = sounds[Random.Range(0,sounds.Count)];
             audioSource.Play();
 
             timeLastShot = Time.time;
         }
         shoot = false;
+    }
+        
+    private void enableArm() {
+        playerArm.SetActive(true);
     }
 
     public void setGameManager(GameManager gm) {

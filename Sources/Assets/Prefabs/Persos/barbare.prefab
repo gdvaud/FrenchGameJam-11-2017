@@ -370,6 +370,7 @@ MonoBehaviour:
   maxHealth: 50
   playerNameLabel: {fileID: 1581822373129988}
   healthBar: {fileID: 1208125856259986}
+  playerArm: {fileID: 1342432933837174}
   forceFactorBySecond: 10
   shotSpeed: 0.5
   projectile: {fileID: 1915380081449200, guid: 060a137a57f57ca49bd731338667908c, type: 2}
