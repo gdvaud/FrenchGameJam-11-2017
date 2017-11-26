@@ -1100,6 +1100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenesManager: {fileID: 114129329424685960}
+  beans: {fileID: 1496950903372862, guid: fc91bdb5d52646b4bafe70606cc67da2, type: 2}
   numberPlayer: {fileID: 114832288973820988}
   numberPlayerSlider: {fileID: 114003370409309868}
   numberLives: {fileID: 114094748708027702}

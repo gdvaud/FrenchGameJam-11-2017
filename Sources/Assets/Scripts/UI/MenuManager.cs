@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour {
 
     public ScenesManager scenesManager;
+    public GameObject beans;
     private GameData gameData;
 
     public Text numberPlayer;
@@ -15,6 +16,9 @@ public class MenuManager : MonoBehaviour {
 
     private void Start() {
         gameData = FindObjectOfType<GameData>();
+        if (gameData == null) {
+            Instantiate(beans);
+        }
     }
 
     public void onStart() {
