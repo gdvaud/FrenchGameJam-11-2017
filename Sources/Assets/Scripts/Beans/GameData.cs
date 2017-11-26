@@ -21,6 +21,7 @@ public class GameData : MonoBehaviour {
     public bool addKey(int player, KeyCode key) {
         if (!playerKeys.ContainsValue(key)) {
             playerKeys.Add(player, key);
+            players.Add(player, new Player());
             return true;
         }
         return false;

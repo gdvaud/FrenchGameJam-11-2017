@@ -19,6 +19,8 @@ public class MenuManager : MonoBehaviour {
         if (gameData == null) {
             Instantiate(beans);
         }
+        numberPlayer.text = "Nombre de joueurs: " + numberPlayerSlider.value;
+        numberLives.text = "Nombre de vies: " + numberLivesSlider.value;
     }
 
     public void onStart() {
