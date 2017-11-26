@@ -41,10 +41,8 @@ public class GameManager : MonoBehaviour {
             GameObject score = Instantiate(this.playerScore, this.scores.transform);
 
             Vector2 scorePosition = score.GetComponent<RectTransform>().anchoredPosition;
-            Debug.Log(scorePosition);
             scorePosition.x = scoreWidthPerPlayer * (-0.5f + i);
             score.GetComponent<RectTransform>().anchoredPosition = scorePosition;
-            Debug.Log(scorePosition);
 
             TankManager tankManager = tank.GetComponent<TankManager>();
             tankManager.setGameManager(this);
@@ -53,6 +51,11 @@ public class GameManager : MonoBehaviour {
             tankManager.lives.text = "Lives: " + gameData.maxLives;
 
             resetTank(tankManager);
+
+            Player player;
+            gameData.players.TryGetValue(i, out player);
+            player.tank = tankManager;
+            //gameData.players.Add(i, player);
 
             tanks.Add(i, tankManager);
         }
@@ -92,7 +95,6 @@ public class GameManager : MonoBehaviour {
 
     public void OnPlayerKill(int killerId, int victimId) {
         Player killer = gameData.players[killerId];
-        Debug.LogFormat("P{0} killed P{1}", killerId, victimId);
         killer.kill += 1;
 
         Player victim = gameData.players[victimId];

@@ -526,6 +526,8 @@ MonoBehaviour:
   audioDeathSource: {fileID: 82589378927136042}
   deathSounds:
   - {fileID: 8300000, guid: 5f1c02da17d412542b230188e0a79947, type: 3}
+  victorySounds:
+  - {fileID: 8300000, guid: c6eb9130b5a17c54287ed8a3f354cc7a, type: 3}
 --- !u!114 &114557872636827104
 MonoBehaviour:
   m_ObjectHideFlags: 1

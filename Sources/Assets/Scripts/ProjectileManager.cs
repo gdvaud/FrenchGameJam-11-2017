@@ -40,9 +40,7 @@ public class ProjectileManager : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D coll) {
         // Ignore self-collision when if happens soon after the shot
         if (coll.gameObject == Emitter && Time.time - creationTime < TOLERANCE_DURATION) {
-            Debug.Log("Self-collision (ignored)", this);
         } else {
-            Debug.Log("Collision " + coll.gameObject);
             Destroy(gameObject);
         }
     }

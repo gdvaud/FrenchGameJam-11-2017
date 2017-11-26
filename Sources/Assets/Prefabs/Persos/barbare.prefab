@@ -479,6 +479,9 @@ MonoBehaviour:
   deathSounds:
   - {fileID: 8300000, guid: 679ce595cc8d99a49a627afdb5d182b3, type: 3}
   - {fileID: 8300000, guid: 7bdd74719f83530469794d0521855d11, type: 3}
+  victorySounds:
+  - {fileID: 8300000, guid: bc1c8a47b8ea55645878f7ebb556cea6, type: 3}
+  - {fileID: 8300000, guid: 81808c0f7738ac94fbc5008b3a6de6d0, type: 3}
 --- !u!114 &114373513531158432
 MonoBehaviour:
   m_ObjectHideFlags: 1

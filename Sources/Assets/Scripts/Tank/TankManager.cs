@@ -77,6 +77,7 @@ public class TankManager : MonoBehaviour {
     public List<AudioClip> shotSounds;
     public AudioSource audioDeathSource;
     public List<AudioClip> deathSounds;
+    public List<AudioClip> victorySounds;
 
     void Update() {
         if (!isLoading) {
@@ -148,7 +149,6 @@ public class TankManager : MonoBehaviour {
                 Health -= instantDamage;
                 
                 gm.registerPlayerDamage(attackerTankManager.PlayerNumber, instantDamage);
-                Debug.LogFormat("{0} dealt {1} damage to {2}", proj.Emitter.name, instantDamage, name);
                 if (Health <= 0) {
                     gm.OnPlayerKill(attackerTankManager.PlayerNumber, PlayerNumber);
 

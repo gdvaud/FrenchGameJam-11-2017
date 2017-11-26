@@ -532,6 +532,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b28d90159f8d7a249af0e4af6b14179e, type: 3}
   - {fileID: 8300000, guid: 510e6b1292784b84983c115fd14bbbc0, type: 3}
   - {fileID: 8300000, guid: 1cef0d08968be8845a5dc035ebf8217a, type: 3}
+  victorySounds:
+  - {fileID: 8300000, guid: 7d8241bc75156ab4eb397ee25565c572, type: 3}
+  - {fileID: 8300000, guid: d3122677316122d498afd905cdd334de, type: 3}
+  - {fileID: 8300000, guid: fe2adb9bed979bc4e84e808f9793b699, type: 3}
 --- !u!114 &114782492242508866
 MonoBehaviour:
   m_ObjectHideFlags: 1

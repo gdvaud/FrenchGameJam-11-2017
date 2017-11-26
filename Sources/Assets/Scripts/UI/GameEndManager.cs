@@ -10,6 +10,7 @@ public class GameEndManager : MonoBehaviour {
     public GameObject playerStat;
 
     public float deltaStat = 150;
+
     private void Start() {
         GameData data = FindObjectOfType<GameData>();
         List<KeyValuePair<int, Player>> stats = new List<KeyValuePair<int, Player>>();
@@ -28,9 +29,10 @@ public class GameEndManager : MonoBehaviour {
         });
 
         stats.ForEach(delegate (KeyValuePair<int, Player> x) {
-            Debug.Log(x + " k:" + x.Value.kill + " d:" + x.Value.death + " dgm:" + x.Value.damage);
             if (x.Value.death < data.maxLives) {
                 playerWon.text = "Player " + x.Key + " won !";
+                GetComponent<AudioSource>().clip = x.Value.tank.victorySounds[Random.Range(0, x.Value.tank.victorySounds.Count)];
+                GetComponent<AudioSource>().Play();
             }
             createStat(x.Value, x.Key);
         });
