@@ -140,11 +140,13 @@ public class TankManager : MonoBehaviour {
             // Ignore self-collision when if happens soon after the shot
             var ignoreCollision = gameObject == proj.Emitter && Time.time - proj.creationTime < ProjectileManager.TOLERANCE_DURATION;
             if (!ignoreCollision) {
-                Health -= proj.InstantDamage();
-                Debug.LogFormat("{0} dealt {1} damage to {2}", proj.Emitter.name, proj.InstantDamage(), name);
+                var instantDamage = proj.InstantDamage();
+                var attackerTankManager = proj.Emitter.GetComponent<TankManager>();
+                Health -= instantDamage;
+                gm.registerPlayerDamage(attackerTankManager.PlayerNumber, instantDamage);
+                Debug.LogFormat("{0} dealt {1} damage to {2}", proj.Emitter.name, instantDamage, name);
                 if (Health <= 0) {
-                    var killerTankManager = proj.Emitter.GetComponent<TankManager>();
-                    gm.OnPlayerKill(killerTankManager.PlayerNumber, PlayerNumber);
+                    gm.OnPlayerKill(attackerTankManager.PlayerNumber, PlayerNumber);
 
                     audioDeathSource.clip = deathSounds[Random.Range(0, deathSounds.Count)];
                     audioDeathSource.Play();

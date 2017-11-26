@@ -117,4 +117,8 @@ public class GameManager : MonoBehaviour {
             }
         }
     }
+
+    public void registerPlayerDamage(int attackerId, int damages) {
+        gameData.players[attackerId].damage += damages;
+    }
 }
