@@ -24,7 +24,9 @@ public class KeyChooseManager : MonoBehaviour {
                 if (Input.GetKeyDown(kcode)) {
                     Debug.Log(actualPlayer + " " + kcode);
                     error.enabled = false;
-                    if (gameData.addKey(actualPlayer, kcode)) {
+                    bool added = gameData.addKey(actualPlayer, kcode);
+                    Debug.Log("added " + added);
+                    if (added) {
                         actualPlayer++;
                         break;
                     } else {

@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creationTime: 0
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 82215069390871532}
   baseDamage: 20
 --- !u!114 &114790157614211108
 MonoBehaviour:
