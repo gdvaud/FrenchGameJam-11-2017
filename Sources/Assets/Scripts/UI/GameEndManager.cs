@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameEndManager : MonoBehaviour {
 
+    public ScenesManager sm;
+
     public Text playerWon;
     public Transform statsLocation;
     public GameObject playerStat;
@@ -36,6 +38,12 @@ public class GameEndManager : MonoBehaviour {
             }
             createStat(x.Value, x.Key);
         });
+
+        foreach (KeyValuePair<int, Player> player in data.players) {
+            player.Value.damage = 0;
+            player.Value.kill = 0;
+            player.Value.death = 0;
+        }
     }
 
     private void createStat(Player player, int number) {
@@ -64,5 +72,13 @@ public class GameEndManager : MonoBehaviour {
                     break;
             }
         }
+    }
+
+    public void onMenu() {
+        sm.loadMenu();
+    }
+
+    public void onRestart() {
+        sm.loadGame();
     }
 }
