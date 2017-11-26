@@ -9,6 +9,7 @@ public class ProjectileManager : MonoBehaviour {
     // Tank GameObject. Must be set by emitter.
     public GameObject Emitter { get; set; }
     public GameManager gameManager { get; set; }
+    public AudioSource audioSource;
     public int baseDamage = 20;
 
     public int InstantDamage() {
@@ -41,7 +42,9 @@ public class ProjectileManager : MonoBehaviour {
         // Ignore self-collision when if happens soon after the shot
         if (coll.gameObject == Emitter && Time.time - creationTime < TOLERANCE_DURATION) {
         } else {
-            Destroy(gameObject);
+            audioSource.Play();
+            GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+            Destroy(gameObject, 1f);
         }
     }
 
