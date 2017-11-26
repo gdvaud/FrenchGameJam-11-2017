@@ -10,6 +10,8 @@ public class MenuManager : MonoBehaviour {
 
     public Text numberPlayer;
     public Slider numberPlayerSlider;
+    public Text numberLives;
+    public Slider numberLivesSlider;
 
     private void Start() {
         gameData = FindObjectOfType<GameData>();
@@ -17,6 +19,7 @@ public class MenuManager : MonoBehaviour {
 
     public void onStart() {
         gameData.numberPlayer = (int) numberPlayerSlider.value;
+        gameData.maxLives = (int) numberLivesSlider.value;
         scenesManager.loadKeyChoose();
     }
 
@@ -25,7 +28,11 @@ public class MenuManager : MonoBehaviour {
     }
 
     public void onNumberPlayerChange() {
-        numberPlayer.text = "Nombre joueurs: " + numberPlayerSlider.value;
+        numberPlayer.text = "Nombre de joueurs: " + numberPlayerSlider.value;
+    }
+
+    public void onNumberLivesChange() {
+        numberLives.text = "Nombre de vies: " + numberLivesSlider.value;
     }
     
 }
