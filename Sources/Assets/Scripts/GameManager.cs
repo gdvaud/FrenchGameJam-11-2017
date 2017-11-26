@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour {
             tankManager.setGameManager(this);
             tankManager.PlayerNumber = i;
             tankManager.Score = score;
+            tankManager.lives.text = "Lives: " + gameData.maxLives;
 
             resetTank(tankManager);
 
@@ -100,7 +101,7 @@ public class GameManager : MonoBehaviour {
         tanks.TryGetValue(killerId, out killers);
         tanks.TryGetValue(victimId, out victims);
         killers.kills.text = "Kills: " + killer.kill;
-        victims.death.text = "Death: " + victim.death;
+        victims.lives.text = "Lives: " + (gameData.maxLives - victim.death);
 
         spawnManager.freeSpawnPoint(victimId);
         TankManager victimTank = tanks[victimId];

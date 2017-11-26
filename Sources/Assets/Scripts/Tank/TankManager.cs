@@ -21,9 +21,6 @@ public class TankManager : MonoBehaviour {
                     case "Lives":
                         lives = obj;
                         break;
-                    case "Death":
-                        death = obj;
-                        break;
                     case "Kills":
                         kills = obj;
                         break;

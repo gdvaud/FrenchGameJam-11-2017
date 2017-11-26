@@ -19,9 +19,9 @@ public class GameData : MonoBehaviour {
         playerKeys.Add(1, KeyCode.Alpha1);
         playerKeys.Add(2, KeyCode.Alpha2);
         playerKeys.Add(3, KeyCode.Alpha3);
-        players.Add(1, new Player(5));
-        players.Add(2, new Player(5));
-        players.Add(3, new Player(5));
+        players.Add(1, new Player());
+        players.Add(2, new Player());
+        players.Add(3, new Player());
         // ---
     }
     private void Start() {
