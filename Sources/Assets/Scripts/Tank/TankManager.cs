@@ -114,10 +114,12 @@ public class TankManager : MonoBehaviour {
         }
         shoot = false;
     }
-        
+
     private void enableArm() {
         playerArm.SetActive(true);
         startLoading = Time.time;
+        var canonAngle = Random.Range(minAngle, maxAngle);
+        canon.transform.rotation = Quaternion.AngleAxis(canonAngle, Vector3.forward);
     }
 
     public void setGameManager(GameManager gm) {
