@@ -20,15 +20,15 @@ public class ProjectileManager : MonoBehaviour {
         return Mathf.RoundToInt(baseDamage * velocityFactor);
     }
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         Debug.Assert(Emitter != null);
         Debug.Assert(gameManager != null);
         creationTime = Time.time;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update() {
         if (
             transform.position.x < gameManager.leftBound.transform.position.x ||
             transform.position.x > gameManager.rightBound.transform.position.x ||
@@ -36,15 +36,17 @@ public class ProjectileManager : MonoBehaviour {
         ) {
             Destroy(gameObject);
         }
-	}
+    }
 
     void OnTriggerEnter2D(Collider2D coll) {
         // Ignore self-collision when if happens soon after the shot
         if (coll.gameObject == Emitter && Time.time - creationTime < TOLERANCE_DURATION) {
         } else {
+            Debug.Log("sound");
             audioSource.Play();
             GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
-            Destroy(gameObject, 1f);
+
+            Destroy(gameObject, 0.1f);
         }
     }
 
