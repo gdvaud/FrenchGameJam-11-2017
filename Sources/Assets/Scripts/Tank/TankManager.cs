@@ -142,7 +142,11 @@ public class TankManager : MonoBehaviour {
             if (!ignoreCollision) {
                 var instantDamage = proj.InstantDamage();
                 var attackerTankManager = proj.Emitter.GetComponent<TankManager>();
+                if (instantDamage > Health) {
+                    instantDamage = Health;
+                }
                 Health -= instantDamage;
+                
                 gm.registerPlayerDamage(attackerTankManager.PlayerNumber, instantDamage);
                 Debug.LogFormat("{0} dealt {1} damage to {2}", proj.Emitter.name, instantDamage, name);
                 if (Health <= 0) {
