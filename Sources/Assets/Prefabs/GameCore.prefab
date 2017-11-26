@@ -474,6 +474,9 @@ MonoBehaviour:
   - {fileID: 1767374398308174, guid: 0e87739d706c30f41b60dd857f6646be, type: 2}
   minLocation: {fileID: 4111755191464510}
   maxLocation: {fileID: 4094804787150622}
+  playerScore: {fileID: 1683385793156168, guid: a9a88c34867541f4faf6b3908e0de279,
+    type: 2}
+  scores: {fileID: 0}
 --- !u!114 &114582099763491906
 MonoBehaviour:
   m_ObjectHideFlags: 1

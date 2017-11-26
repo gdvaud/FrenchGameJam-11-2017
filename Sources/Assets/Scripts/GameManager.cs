@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour {
     public List<GameObject> persos;
     public Transform minLocation;
     public Transform maxLocation;
+    private float spawnWidth;
+    public GameObject playerScore;
+    public GameObject scores;
 
     private void Awake() {
         tanks = new Dictionary<int, TankManager>();
@@ -30,14 +33,24 @@ public class GameManager : MonoBehaviour {
 
         shufflePersos();
 
+        float scoreWidthPerPlayer = this.scores.GetComponent<RectTransform>().rect.width / gameData.numberPlayer;
+        float playerWidth = this.playerScore.GetComponent<RectTransform>().rect.width;
         for (int i = 1; i <= gameData.numberPlayer; i++) {
             GameObject tank = GameObject.Instantiate(persos[i % persos.Count]);
+            GameObject score = Instantiate(this.playerScore, this.scores.transform);
+
+            Vector2 scorePosition = score.GetComponent<RectTransform>().anchoredPosition;
+            Debug.Log(scorePosition);
+            scorePosition.x = scoreWidthPerPlayer * (-0.5f + i);
+            score.GetComponent<RectTransform>().anchoredPosition = scorePosition;
+            Debug.Log(scorePosition);
 
             tank.transform.position = spawnManager.allocateSpawnPoint(i);
 
             TankManager tankManager = tank.GetComponent<TankManager>();
             tankManager.setGameManager(this);
             tankManager.PlayerNumber = i;
+            tankManager.Score = score;
 
             tanks.Add(i, tankManager);
         }
@@ -75,6 +88,13 @@ public class GameManager : MonoBehaviour {
 
         Player victim = gameData.players[victimId];
         victim.death += 1;
+
+        TankManager killers, victims;
+        tanks.TryGetValue(killerId, out killers);
+        tanks.TryGetValue(victimId, out victims);
+        killers.kills.text = "Kills" + killer.kill;
+        victims.death.text = "Death" + victim.death;
+
         spawnManager.freeSpawnPoint(victimId);
         TankManager victimTank = tanks[victimId];
         if (victim.death < gameData.maxLives) {

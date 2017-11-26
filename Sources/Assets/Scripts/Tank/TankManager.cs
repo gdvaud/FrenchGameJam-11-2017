@@ -1,11 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TankManager : MonoBehaviour {
 
     public GameManager gm;
 
+    [Header("Score")]
+    private GameObject score;
+    public GameObject Score {
+        get { return score; }
+        set {
+            Text[] objs = value.GetComponentsInChildren<Text>();
+            foreach (var obj in objs) {
+                switch(obj.name) {
+                    case "Player":
+                        obj.text = "Player " + playerNumber;
+                        break;
+                    case "Lives":
+                        lives = obj;
+                        break;
+                    case "Death":
+                        death = obj;
+                        break;
+                    case "Kills":
+                        kills = obj;
+                        break;
+                }
+            }
+        }
+    }
+    public Text lives { get; set; }
+    public Text kills { get; set; }
+    public Text death { get; set; }
     public int health = 50;
     public int maxHealth = 50;
 
