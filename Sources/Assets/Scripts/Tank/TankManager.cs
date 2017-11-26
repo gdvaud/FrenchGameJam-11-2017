@@ -57,7 +57,6 @@ public class TankManager : MonoBehaviour {
 
     public GameObject playerNameLabel;
     public GameObject healthBar;
-    public GameObject playerArm;
 
     [Header("Shoot Handling")]
     private bool shoot = false;
@@ -106,8 +105,8 @@ public class TankManager : MonoBehaviour {
 
             p.GetComponent<Projectile>().setForce((Time.time - startLoading) * forceFactorBySecond);
 
-            playerArm.SetActive(false);
-            Invoke("enableArm", 1f / shotSpeed);
+            canon.SetActive(false);
+            Invoke("reenableArm", 1f / shotSpeed);
 
             audioShotSource.clip = shotSounds[Random.Range(0, shotSounds.Count)];
             audioShotSource.Play();
@@ -117,8 +116,8 @@ public class TankManager : MonoBehaviour {
         shoot = false;
     }
 
-    private void enableArm() {
-        playerArm.SetActive(true);
+    private void reenableArm() {
+        canon.SetActive(true);
         startLoading = Time.time;
         var canonAngle = Random.Range(minAngle, maxAngle);
         canon.transform.rotation = Quaternion.AngleAxis(canonAngle, Vector3.forward);
