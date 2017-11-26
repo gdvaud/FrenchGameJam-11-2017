@@ -23,6 +23,11 @@ public class ScenesManager : MonoBehaviour {
         StartCoroutine(loadLevelAsync("GameEnd"));
     }
 
+    public void loadCredits() {
+        StartCoroutine(loadLevelAsync("Credits"));
+    }
+
+
     public void quit() {
         Application.Quit();
     }

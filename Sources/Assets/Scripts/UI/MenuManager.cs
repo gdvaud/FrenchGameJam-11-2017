@@ -31,6 +31,10 @@ public class MenuManager : MonoBehaviour {
         scenesManager.quit();
     }
 
+    public void onCredits() {
+        scenesManager.loadCredits();
+    }
+
     public void onNumberPlayerChange() {
         numberPlayer.text = "Nombre de joueurs: " + numberPlayerSlider.value;
     }
