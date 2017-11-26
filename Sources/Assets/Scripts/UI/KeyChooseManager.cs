@@ -36,6 +36,7 @@ public class KeyChooseManager : MonoBehaviour {
             }
             playerEnter.text = "Enter player " + actualPlayer + " key !";
         } else {
+            playerEnter.enabled = false;
             scenesManager.loadGame();
         }
     }

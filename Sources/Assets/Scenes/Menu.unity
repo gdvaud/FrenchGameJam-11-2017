@@ -122,12 +122,12 @@ Prefab:
     - target: {fileID: 224216047660520380, guid: f0873741a4f29f44aa8597bc5ecd9555,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 439
+      value: 344
       objectReference: {fileID: 0}
     - target: {fileID: 224216047660520380, guid: f0873741a4f29f44aa8597bc5ecd9555,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 247
+      value: 193.5
       objectReference: {fileID: 0}
     - target: {fileID: 224216047660520380, guid: f0873741a4f29f44aa8597bc5ecd9555,
         type: 2}
@@ -209,25 +209,25 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 224238730001607558, guid: f0873741a4f29f44aa8597bc5ecd9555,
+    - target: {fileID: 224319117527082204, guid: f0873741a4f29f44aa8597bc5ecd9555,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -195.775
-      objectReference: {fileID: 0}
-    - target: {fileID: 224114005296300334, guid: f0873741a4f29f44aa8597bc5ecd9555,
-        type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -306.73026
+      value: -397.99997
       objectReference: {fileID: 0}
     - target: {fileID: 224995307532934276, guid: f0873741a4f29f44aa8597bc5ecd9555,
         type: 2}
       propertyPath: m_LocalPosition.x
       value: -347.62762
       objectReference: {fileID: 0}
-    - target: {fileID: 114669599874422746, guid: f0873741a4f29f44aa8597bc5ecd9555,
+    - target: {fileID: 224114005296300334, guid: f0873741a4f29f44aa8597bc5ecd9555,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: onCredits
+      propertyPath: m_LocalPosition.x
+      value: -306.73026
+      objectReference: {fileID: 0}
+    - target: {fileID: 224238730001607558, guid: f0873741a4f29f44aa8597bc5ecd9555,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -195.775
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0873741a4f29f44aa8597bc5ecd9555, type: 2}
