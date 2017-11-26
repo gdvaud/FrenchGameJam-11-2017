@@ -77,8 +77,10 @@ public class TankManager : MonoBehaviour {
     public float minAngle;
 
     [Header("Sounds")]
-    public AudioSource audioSource;
-    public List<AudioClip> sounds;
+    public AudioSource audioShotSource;
+    public List<AudioClip> shotSounds;
+    public AudioSource audioDeathSource;
+    public List<AudioClip> deathSounds;
 
     void Update() {
         if (!isLoading) {
@@ -147,6 +149,9 @@ public class TankManager : MonoBehaviour {
                 if (Health <= 0) {
                     var killerTankManager = proj.Emitter.GetComponent<TankManager>();
                     gm.OnPlayerKill(killerTankManager.PlayerNumber, PlayerNumber);
+
+                    audioDeathSource.clip = deathSounds[Random.Range(0, deathSounds.Count)];
+                    audioDeathSource.Play();
                 }
             }
 
