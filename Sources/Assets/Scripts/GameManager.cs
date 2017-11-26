@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GameManager : MonoBehaviour {
 
@@ -109,6 +110,11 @@ public class GameManager : MonoBehaviour {
             resetTank(victimTank);
         } else {
             victimTank.gameObject.SetActive(false);
+
+            var nbAlive = gameData.players.Values.Where(p => p.death < gameData.maxLives).Count();
+            if (nbAlive < 2) {
+                sceneManager.loadGameEnd();
+            }
         }
     }
 }
