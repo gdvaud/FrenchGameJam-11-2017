@@ -108,7 +108,6 @@ public class TankManager : MonoBehaviour {
                 if (Health <= 0) {
                     var killerTankManager = proj.Emitter.GetComponent<TankManager>();
                     gm.OnPlayerKill(killerTankManager.PlayerNumber, PlayerNumber);
-                    Destroy(gameObject);
                 }
             }
 

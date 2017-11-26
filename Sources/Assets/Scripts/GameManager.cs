@@ -12,36 +12,28 @@ public class GameManager : MonoBehaviour {
     [Header("Managers")]
     public InputManager inputManager;
     public ScenesManager sceneManager;
+    public SpawnManager spawnManager;
     private Dictionary<int, TankManager> tanks;
 
     [Header("Tank Generation")]
     public int maxPlayer = 8;
-    private List<int> unusedAreas;
     public List<GameObject> persos;
     public Transform minLocation;
     public Transform maxLocation;
-    private float spawnWidth;
 
     private void Awake() {
         tanks = new Dictionary<int, TankManager>();
-        unusedAreas = new List<int>();
-        for (int i = 0; i < maxPlayer; i++) {
-            unusedAreas.Add(i);
-        }
     }
     // Use this for initialization
     void Start() {
         gameData = FindObjectOfType<GameData>();
-        spawnWidth = maxLocation.position.x - minLocation.position.x;
 
         shufflePersos();
 
         for (int i = 1; i <= gameData.numberPlayer; i++) {
             GameObject tank = GameObject.Instantiate(persos[i % persos.Count]);
 
-            Vector2 tankPosition = tank.transform.position;
-            tankPosition.x = generatePosition() + minLocation.position.x;
-            tank.transform.position = tankPosition;
+            tank.transform.position = spawnManager.allocateSpawnPoint(i);
 
             TankManager tankManager = tank.GetComponent<TankManager>();
             tankManager.setGameManager(this);
@@ -58,12 +50,7 @@ public class GameManager : MonoBehaviour {
         tanks.TryGetValue(player, out tank);
         tank.setIsLoading(state);
     }
-
-    private float generatePosition() {
-        int area = Random.Range(0, unusedAreas.Count);
-        return (spawnWidth / maxPlayer * area) + (spawnWidth / maxPlayer / 2);
-    }
-
+   
     private void shufflePersos() {
         List<int> indexes = new List<int>(persos.Count);
         List<GameObject> newPersos = new List<GameObject>(persos.Count);
@@ -82,11 +69,19 @@ public class GameManager : MonoBehaviour {
     }
 
     public void OnPlayerKill(int killerId, int victimId) {
-        Player killer, victim;
-        gameData.players.TryGetValue(killerId, out killer);
-        gameData.players.TryGetValue(victimId, out victim);
-        killer.kill += 1;
-        victim.death += 1;
+        Player killer = gameData.players[killerId];
         Debug.LogFormat("P{0} killed P{1}", killerId, victimId);
+        killer.kill += 1;
+
+        Player victim = gameData.players[victimId];
+        victim.death += 1;
+        spawnManager.freeSpawnPoint(victimId);
+        TankManager victimTank = tanks[victimId];
+        if (victim.death < gameData.maxLives) {
+            victimTank.Health = victimTank.maxHealth;
+            victimTank.transform.position = spawnManager.allocateSpawnPoint(victimId);
+        } else {
+            Destroy(victimTank.gameObject);
+        }
     }
 }
